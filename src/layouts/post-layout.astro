@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./base-layout.astro";
+const { frontmatter } = Astro.props;
+---
+<style>
+	pre {border-radius: 10px;}
+</style>
+
+
+<BaseLayout title={frontmatter.title}>
+	<div class="max-w-4xl mx-auto px-4 md:px-6 sm:px-4 xs:px-6 lg:px-0 xl:px-0 py-14 text-[#b1bac4] bg-[#0d1117]">
+		<h1 class="text-white text-4xl font-bold text-center pb-4">{frontmatter.title}</h1>
+		<div class="post-content">
+			<slot/>
+		</div>
+	</div>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import Footer from "../components/footer.astro";
+import Navigation from "../components/navigation.astro";
+import { ViewTransitions } from "astro:transitions";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width"/>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="David Jaimes website powered by Google Domains, Astro.build, and GitHub Pages." />
+		<title>David Jaimes - {title}</title>
+		<ViewTransitions />
+		<!-- Katex -->
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous"> -->
+		<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script> -->
+	</head>
+	<body class="bg-[#0d1117]">
+		<Navigation />
+        	<slot/>
+        <Footer />
+	</body>
+</html>
+
+<style>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	/* This format can only be used with "css-variables" Shiki option*/
+	:root {
+		--astro-code-color-text: #959da5;
+		--astro-code-color-background: #333333;
+		--astro-code-token-constant: #005cc5;
+		--astro-code-token-string: #9ecbff;
+		--astro-code-token-comment: #fff;
+		--astro-code-token-keyword: #cb2431;
+		--astro-code-token-parameter: #e36209;
+		--astro-code-token-function: #BB0000;
+		--astro-code-token-string-expression: #9ecbff;
+		--astro-code-token-punctuation: #9ecbff;
+		--astro-code-token-link: #EE0000;
+	}
+
+    :global(.post-content h2) {
+        @apply text-2xl font-bold pb-6 pt-10 text-neutral-100;
+    }
+    :global(.post-content p) {
+        @apply pb-6 font-normal leading-relaxed text-[#b1bac4];
+    }
+	:global(.post-content pre) {
+		@apply mb-6 p-4 rounded-lg text-xs bg-[#161b22] !important;
+	}
+	:global(.post-content ul) {
+		@apply list-disc list-outside pl-10 pb-6
+	}
+	:global(.post-content ol) {
+		@apply list-decimal list-outside pl-10
+	}
+	:global(.post-content a) {
+		@apply text-sky-500 hover:text-sky-700 underline
+	}
+	:global(.post-content code) {
+		@apply text-sm bg-[#161b22] rounded-lg p-1
+	}
+	:global(.post-content strong) {
+		@apply font-bold text-white
+	}
+</style>
